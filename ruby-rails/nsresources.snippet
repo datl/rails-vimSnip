@@ -1,0 +1,26 @@
+class ${1:Namespace}::${2:ModelName}sController < ApplicationController
+	expose(:$3s) { $2.all }
+	expose(:${3:model_name})
+
+	def create
+		if $3.save
+			redirect_to [:${4:namespace}, $3], :notice => "Successfully created $3."
+		else
+			render :action => 'new'
+		end
+	end
+
+	def update
+		if $3.update_attributes(params[:$3])
+			redirect_to [:$4, $3], :notice => "Successfully updated $3."
+		else
+			render :action => 'edit'
+		end
+	end
+
+	def destroy
+		$3.destroy
+		flash[:notice] = "Successfully destroyed $3."
+		redirect_to $4_$3s_url, :notice => "Successfully destroyed $3."
+	end${5}
+end
