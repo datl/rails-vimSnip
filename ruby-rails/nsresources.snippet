@@ -20,7 +20,6 @@ class ${1:Namespace}::${2:ModelName}sController < ApplicationController
 
 	def destroy
 		$3.destroy
-		flash[:notice] = "Successfully destroyed $3."
 		redirect_to $4_$3s_url, :notice => "Successfully destroyed $3."
 	end${5}
 end
